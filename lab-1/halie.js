@@ -1,8 +1,9 @@
-const Person = require(person.js);
+import Person from "./person.js";
 
+class Halie extends Person {
+    constructor(name, color) {
+        super(name, color);
+    }
+};
 
-
-class Halie extends Person {}
-const halie = new Halie("Halie", "Blue");
-
-halie.speak();
+export default Halie;

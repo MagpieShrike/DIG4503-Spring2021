@@ -1,5 +1,5 @@
-import chalk from 'chalk';
+import Halie from "./halie.js";
 
-console.log(chalk.red("Testing!"));
+const h = new Halie('Halie', 'blue');
 
-// issue - passing value from class
+h.speak();
