@@ -8,13 +8,11 @@ class Fetch {
     }
     fetch () {
         axios("https://pokeapi.co/api/v2/pokemon/" + this.pokemon)
-            .then(function(response) {
+            .then((response) => {
                 const pokemon = response.data;
                 console.log(chalk.hex(this.color)(pokemon.name, pokemon.id));
             })
-            .catch(function(error){
-                console.log(chalk.red(error));
-            });
+            .catch((error) => {console.log(chalk.red(error));});
     }
 }
 
