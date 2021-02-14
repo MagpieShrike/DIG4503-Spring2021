@@ -1,7 +1,5 @@
 import React from 'react';
 
-// Fuction Component
-
 const MarketItem = (props) => {
 
     return (

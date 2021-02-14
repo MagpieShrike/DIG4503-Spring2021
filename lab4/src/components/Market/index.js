@@ -1,4 +1,3 @@
-// Class Component
 import React from 'react';
 import MarketItem from '../MarketItem';
 
@@ -11,8 +10,7 @@ class Market extends React.Component {
             items: []
         };
     }
-//this.state.count.map((index) => {<MarketItem key={index} count={index}/>}));
-//
+
     render() {
         return(
             <div>
@@ -27,17 +25,10 @@ class Market extends React.Component {
                         return item;
                     })
                 }</div>
-
-                
             </div>
             
         )
     }
 }
-
-
-
-
-
 
 export default Market;
