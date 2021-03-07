@@ -48,7 +48,7 @@ class Search extends React.Component {
                 <button onClick={() => this.searchMonsters()}>Search</button>
 
                 {
-                (this.state.loading === true) ? (<p>Loading...</p>) : (
+                (this.state.loading === true) ? (<></>) : (
                     (this.state.error === true) ? (<p>Not found!</p>) : (
                         <Pokemon pokemon={this.state.pokemon}/>
                     )
