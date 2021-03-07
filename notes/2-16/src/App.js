@@ -12,13 +12,22 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={() => {
-        setCounter(5); // changes the value of counter
-        console.log(counter);
-      }}>Click me!</button>
-      {counter}
+      var truthValue = true;
+if (truthValue) {console.log("This is true!")} else {
+    console.log("This is not true!")
+}
+      
+      
     </div>
   );
 }
 
 export default App;
+
+/*
+<button onClick={() => {
+        setCounter(5); // changes the value of counter
+        console.log(counter);
+      }}>Click me!</button>
+      {counter}
+*/
