@@ -20,16 +20,16 @@ App.put("/books/:ISBN", async (req, res) => {
     
     const result = await db.createOne( ISBN, title, author, description )
 
-    // change output?
     res.json({ result });
 });
 
-App.get("/books/:ISBN", (req, res) => {
+// works
+App.get("/books/:ISBN", async (req, res) => {
     const ISBN = req.params.ISBN;
 
-    const result = 4;
+    const result = await db.readOne( ISBN );
 
-    res.json({book: "Not Found"});
+    res.json( result );
 });
 
 App.post("/books/search", (req, res) => {

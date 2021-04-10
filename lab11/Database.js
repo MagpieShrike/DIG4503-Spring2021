@@ -1,3 +1,4 @@
+import e from 'express';
 import MongoClient from 'mongodb';
 
 const URL = "mongodb+srv://HalieChalkley:UHXMD3Jo0mDX5ovh@cluster0.yuzwq.mongodb.net";
@@ -23,9 +24,14 @@ class Database {
         };
     };
 
-    async readOne( book ) {
+    async readOne( ISBN ) {
         if ( this.collection != null ) {
-            return await this.collection.findOne( )
+            const result = await this.collection.findOne( { "ISBN": ISBN } );
+            if ( result != null ) {
+                return result;
+            } else {
+                return { "book": "not found" };
+            }
         } else {
             return "could not connect to database";
         };
