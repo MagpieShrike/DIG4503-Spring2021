@@ -39,8 +39,48 @@ class Database {
 
     async updateOne( ISBN, title, author, description ) {
         if ( this.collection != null ) {
-            const result = await this.collection.updateOne();
-            return {};
+            let updated = "";
+            let result = "";
+
+            if ( title != null ) {
+                result = await this.collection.updateOne({"ISBN": ISBN}, {$set: {"title": title}});
+
+                if ( author != null ) {
+                    result = await this.collection.updateOne({"ISBN": ISBN}, {$set: {"author": author}});
+
+                    if ( description != null ) {
+                        // title. author, description
+                        result = await this.collection.updateOne({"ISBN": ISBN}, {$set: {"description": description}});
+                        updated = { "title": title, "author": author, "description": description };
+                    } else {
+                        // title, author
+                        updated = { "title": title, "author": author };
+                    }
+                } else {
+                    // title
+                    updated = { "title": title };
+                }
+
+            } else if ( author != null ) {
+                result = await this.collection.updateOne({"ISBN": ISBN}, {$set: {"author": author}});
+
+                if ( description != null ) {
+                    // author, description
+                    result = await this.collection.updateOne({"ISBN": ISBN}, {$set: {"description": description}});
+                    updated = { "author": author, "description": description };
+                } else {
+                    // author
+                    updated = { "author": author };
+                }
+            } else if ( description != null ) {
+                // description
+                result = await this.collection.updateOne({"ISBN": ISBN}, {$set: {"description": description}});
+                updated = { "description": description };
+            } else {
+                return "nothing to update";
+            }
+
+            return updated;
         } else {
             return "could not connect to database";
         };
