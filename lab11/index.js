@@ -11,7 +11,7 @@ App.use(CORS());
 const db = new Database();
 db.connect("lab11", "books");
 
-// works 
+
 App.put("/books/:ISBN", async (req, res) => {
     const ISBN = req.params.ISBN;
 
@@ -24,7 +24,6 @@ App.put("/books/:ISBN", async (req, res) => {
     res.json({ result });
 });
 
-// works
 App.get("/books/:ISBN", async (req, res) => {
     const ISBN = req.params.ISBN;
 
@@ -33,7 +32,6 @@ App.get("/books/:ISBN", async (req, res) => {
     res.json( result );
 });
 
-// works
 App.post("/books/search", async (req, res) => {
     const query = req.query;
     console.log(query);
@@ -42,7 +40,6 @@ App.post("/books/search", async (req, res) => {
     res.json ( result );
 });
 
-// works
 App.patch("/books/:ISBN", async (req, res) => {
     const ISBN = req.params.ISBN;
 
