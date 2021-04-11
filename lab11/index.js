@@ -6,6 +6,7 @@ const App = Express();
 const port = 45030;
 
 App.use(Express.json());
+App.use(CORS());
 
 const db = new Database();
 db.connect("lab11", "books");
@@ -32,8 +33,13 @@ App.get("/books/:ISBN", async (req, res) => {
     res.json( result );
 });
 
-App.post("/books/search", (req, res) => {
-    
+// works
+App.post("/books/search", async (req, res) => {
+    const query = req.query;
+    console.log(query);
+    const result = await db.readMany( query );
+
+    res.json ( result );
 });
 
 // works

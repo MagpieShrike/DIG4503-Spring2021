@@ -37,6 +37,22 @@ class Database {
         };
     };
 
+     async readMany( query ) {
+        if ( this.collection != null ) {
+            const result = await this.collection.find( query ).toArray()
+            .then((cursorArray) => {
+                if ( cursorArray.length != 0 ) {
+                    return { books: cursorArray };
+                } else {
+                    return { books: "none" };
+                }
+            });
+            return result;
+        } else {
+            return "could not connect to database";
+        }
+    }
+
     async updateOne( ISBN, title, author, description ) {
         if ( this.collection != null ) {
             let updated = "";
@@ -94,6 +110,12 @@ class Database {
             return "could not connect to database";
         };
     };
+
+    close() {
+        if(this.collection != null) {
+          this.connection.close();
+        }
+    }
 };
 
 export default Database;
