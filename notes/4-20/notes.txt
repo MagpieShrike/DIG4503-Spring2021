@@ -1,0 +1,37 @@
+-|| Example ||-
+
+Various machine parts where each part has a title, SKU, description
+
+Database Perspective:
+    - Fields: title, SKU, description
+    - Document
+    - Collection
+    - Methods:
+        - Connect
+        - Close
+        - createOne()   ->  insertOne()
+        - readOne()     ->  findOne()
+        - updateOne()   ->  updateOne()
+        - deleteOne()   ->  deleteOne()
+
+Server Perspective:
+    - Fields: title, SKU, description
+    - Document: ( Request Parameter )
+    - CRUD
+        - PUT       ( create )  :   App.put()
+        - GET       ( read )    :   App.get()
+        - PATCH     ( update )  :   App.patch()
+        - DELETE    ( delete )  :   App.delete()
+    Routes:
+        - PUT:      "/parts/:sku"   ( Request Body )
+        - Get:      "/parts/:sku"
+        - Patch:    "/parts/:sku"   ( Request Body )
+        - Delete:   "/parts/:sku"
+
+Client Perspective:
+    - CRUD
+        - PUT       ( create )  :   Axios.put()
+        - GET       ( read )    :   Axios.get()
+        - PATCH     ( update )  :   Axios.patch()
+        - DELETE    ( delete )  :   Axios.delete()   
+
