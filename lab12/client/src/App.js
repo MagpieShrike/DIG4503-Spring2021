@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import AddBook from './components/AddBook';
+import ReadBook from './components/ReadBook';
+import RemoveBook from './components/RemoveBook';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/A1nHB8t757L.jpg" alt="The Book of Jhereg" height="20%" width="20%" />
+        <br /> <br />
+        <AddBook />
+        <ReadBook />
+        <RemoveBook />
     </div>
   );
 }
